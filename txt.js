@@ -2,9 +2,9 @@
   document.getElementById("pesquisa-funcionario").addEventListener("input", function(event) {
     const input = event.target;
     input.value = input.value
-      .toUpperCase() // Converte para maiúsculas
-      .normalize("NFD") // Normaliza os caracteres Unicode
-      .replace(/[\u0300-\u036f]/g, ""); // Remove os acentos
+      .toUpperCase() 
+      .normalize("NFD") 
+      .replace(/[\u0300-\u036f]/g, ""); 
   });
 
 
@@ -13,13 +13,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const inputNome = document.getElementById("nome-funcionario");
     const inputPesquisa = document.getElementById("pesquisa-funcionario");
 
-    // Evento para preencher o input ao selecionar um funcionário e limpar a pesquisa
+    
     selectFuncionario.addEventListener("change", function () {
         inputNome.value = selectFuncionario.value;
-        inputPesquisa.value = ""; // Limpa o campo de pesquisa
+        inputPesquisa.value = ""; 
     });
 
-    // Evento para filtrar os nomes no select enquanto digita no campo de pesquisa
+    
     inputPesquisa.addEventListener("input", function () {
         const filtro = inputPesquisa.value.toLowerCase();
         const options = selectFuncionario.options;
@@ -54,16 +54,16 @@ function submitForm(event, url) {
     }).then(response => {
         if (response.ok) {
             alert('Dados enviados com sucesso');
-            event.target.reset(); // Reseta o formulário após o sucesso
+            event.target.reset(); 
         } else {
             alert('Erro ao enviar os dados');
         }
-        submitButton.innerHTML = "Enviar"; // Restaura o valor do botão
-        submitButton.style.border = ""; // Restaura o estilo do botão
+        submitButton.innerHTML = "Enviar"; 
+        submitButton.style.border = ""; 
     }).catch(error => {
         alert('Erro ao enviar os dados');
-        submitButton.innerHTML = "Enviar"; // Restaura o valor do botão em caso de erro
-        submitButton.style.border = ""; // Restaura o estilo do botão em caso de erro
+        submitButton.innerHTML = "Enviar"; 
+        submitButton.style.border = ""; 
     });
 }
 
